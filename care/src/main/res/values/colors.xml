@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- 护理等级 一级-->
+    <color name="care_level_1">#f8415ef1</color>
+    <!-- 护理等级 二级-->
+    <color name="care_level_2">#f813aa40</color>
+    <!-- 护理等级 三级-->
+    <color name="care_level_3">#f8eef531</color>
+    <!-- 护理等级 特级-->
+    <color name="care_level_4">#f8e3221b</color>
+    <!-- 护理等级 无护理等级-->
+    <color name="care_level_5">#f88b918b</color>
+
+    <color name="tab_unselect">#f86e736e</color>
+</resources>

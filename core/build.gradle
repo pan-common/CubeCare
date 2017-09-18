@@ -1,0 +1,131 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    //关闭图片合法性检查
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk{
+            moduleName "forkApp" //生成的so名字
+            ldLibs "log" //Log打印
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+            }    //输出指定三种abi体系结构下的so库。目前可有可无。
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            resources.srcDirs = ['src/main/resources', 'src/main/resources/layout']
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.0'
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral() // add repository
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin
+    }
+}
+
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'org.greenrobot.greendao'
+
+greendao {
+    schemaVersion 1
+    targetGenDir 'src/main/java'
+    daoPackage 'com.taiji.library.greendao.db'
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    //卡片样式布局
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.android.support:cardview-v7:26.+'
+    compile 'com.android.support:percent:26.0.0-alpha1'
+    //greendao orm
+    compile 'org.greenrobot:greendao:3.2.2'
+    //事件总线
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    //retrofit2网络请求依赖
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
+    //日期时间选择弹出框
+    compile 'com.wdullaer:materialdatetimepicker:2.5.0'
+    //工具类
+    compile 'com.blankj:utilcode:1.3.4'
+    //二维码扫描
+    compile 'cn.yipianfengye.android:zxing-library:2.0'
+    //照片选择
+    compile 'me.iwf.photopicker:PhotoPicker:0.9.0@aar'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //阿里热修复框架
+    compile 'com.alipay.euler:andfix:0.5.0@aar'
+    //Google java项目核心依赖库
+    compile 'com.google.guava:guava:18.0'
+    //圆形图片控件
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    //第三方下拉刷新
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
+    //解决方法数爆炸
+    compile 'com.android.support:multidex:1.0.0'
+    //图片加载框架
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    //图片浏览远点指示器
+    compile 'me.relex:circleindicator:1.2.2@aar'
+    //树装控件
+    compile 'com.github.bmelnychuk:atv:1.2.+'
+    compile 'com.github.johnkil.print:print:1.2.2'
+    //签名控件
+    compile 'com.github.gcacace:signature-pad:1.2.0'
+
+    //    照片选择
+    compile 'me.iwf.photopicker:PhotoPicker:0.9.0@aar'
+    //文字替换框架
+    compile 'com.squareup.phrase:phrase:1.1.0'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+    //解决fragment重叠问题
+    compile 'me.yokeyword:fragmentation:1.1.4'
+    //protobuf
+    compile 'com.google.protobuf:protobuf-java:3.1.0'
+    compile 'com.google.protobuf:protoc:3.1.0'
+    compile 'io.netty:netty-all:5.0.0.Alpha2'
+}
+
+configurations {
+    debug
+    release
+}

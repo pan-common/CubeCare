@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">移动护理</string>
+    <string name="patient">患者</string>
+    <string name="order">医嘱</string>
+    <string name="sign">体征</string>
+    <string name="record">文书</string>
+    <string name="report">报告</string>
+</resources>

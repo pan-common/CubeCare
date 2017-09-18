@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="listview_line">2dp</dimen>
+    <dimen name="listview_line_left">2dp</dimen>
+    <dimen name="listview_line_margin">10dp</dimen>
+
+    <!-- HDialogBuilder-->
+    <dimen name="dialog_corner_radius">4dp</dimen>
+    <dimen name="dialog_msg_min_height">112dp</dimen>
+</resources>

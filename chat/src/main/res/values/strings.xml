@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Chat</string>
+
+    <string name="message">消息</string>
+    <string name="addressbook">通讯录</string>
+    <string name="mine">我</string>
+</resources>

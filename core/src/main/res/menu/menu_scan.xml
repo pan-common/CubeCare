@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      tools:context=".activity.HomeActivity">
+    <item android:id="@+id/action_scan"
+          android:title="扫一扫"
+          android:orderInCategory="80"
+          android:icon="@drawable/ic_center_focus_weak"
+          app:showAsAction="ifRoom">
+    </item>
+</menu>
